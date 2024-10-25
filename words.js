@@ -1,0 +1,18 @@
+const words = [
+  { word: "JEJAK", hint: "Bukti yang ditinggalkan di TKP" },
+  { word: "SENJATA", hint: "Alat yang digunakan untuk membunuh" },
+  { word: "ALIBI", hint: "Pembelaan bahwa seseorang tidak ada di TKP" },
+  { word: "MOTIF", hint: "Alasan pembunuh melakukan kejahatan" },
+  { word: "DETEKTIF", hint: "Orang yang menyelidiki kasus ini" },
+  { word: "TERSANGKA", hint: "Orang yang diduga sebagai pembunuh" },
+  { word: "PEMBUNUH", hint: "Orang yang membunuh" },
+  { word: "POLISI", hint: "Penegak hukum" },
+  { word: "SAKSI", hint: "Orang yang melihat kejadian" },
+  { word: "MISTERI", hint: "Sesuatu yang membingungkan" },
+  { word: "KASUS", hint: "Masalah hukum yang ditangani" },
+  { word: "PETUNJUK", hint: "Informasi yang membantu" },
+  { word: "TANDA", hint: "Sesuatu yang menunjukkan" },
+  { word: "RENCANA", hint: "Strategi yang dibuat" },
+  { word: "BUKTI", hint: "Fakta yang menunjukkan kebenaran" },
+  { word: "KORBAN", hint: "Orang yang menjadi sasaran kejahatan" },
+];

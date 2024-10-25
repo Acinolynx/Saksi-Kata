@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saksi Kata</title>
+    <link rel="icon" type="image/x-icon" href="./Asset/logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="background"></div>
+
+      <!-- Start Screen -->
+      <div id="start-screen">
+        <div class="logo"></div>
+        <button class="start-button" id="startButton">Mulai Selidiki</button>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="game" style="display: none">
+        <div class="game-box">
+            <div class="logo-game"></div>
+            <ul class="word-display"></ul>
+            <h4 class="hint-text">Hint: <b></b></h4>
+            <h4 class="time-text">Waktu: <b id="time-limit">30</b> Detik</h4>
+            <h4 class="lives-text">Nyawa: <b id="lives">6</b></h4>
+            <button class="refresh-button" id="refresh-word-btn">Ganti Kata</button>
+            <div class="keyboard"></div>
+            <div class="notification" id="notification" style="display: none;"></div> 
+        </div>
+        </div>
+      </div>
+
+      <!-- Game Over Screen -->
+      <div id="game-over-screen" style="display: none">
+        <div class="logo-over"></div>
+        <div class="scores">
+          <div><span id="final-score">0</span></div>
+        </div>
+        <button id="restart-btn">Selidiki Lagi</button>
+      </div>
+
+      <!-- Audio Files -->
+      <audio id="bgm" src="./Asset/bgm.mp3"></audio>
+
+      <!-- JavaScript -->
+      <script src="words.js"></script>
+      <script src="game.js"></script>
+    </div>
+  </body>
+</html>
