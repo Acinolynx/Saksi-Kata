@@ -15,6 +15,32 @@ body {
   padding: 0;
 }
 
+@keyframes breathingEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTopToCenter {
+  0% {
+    transform: translateY(-100%) scale(0.1); /* Start smaller and off the screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1); /* End at normal scale and center */
+    opacity: 1;
+  }
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -40,13 +66,17 @@ body {
   width: 500px;
   height: 500px;
   background: url("./Asset/logonobg.png") no-repeat center center/cover;
+  animation: slideTopToCenter 0.5s ease-out forwards,
+    breathingEffect 3s infinite 0.5s;
 }
 
 .logo-game {
   width: 300px;
   height: 300px;
+  translate: 25%;
   background: url("./Asset/logonobg.png") no-repeat center center/cover;
-  translate: 30%;
+  animation: slideTopToCenter 0.5s ease-out forwards,
+    breathingEffect 3s infinite 0.5s;
 }
 
 .logo-over {
@@ -54,6 +84,8 @@ body {
   height: 500px;
   background: url("./Asset/logonobg.png") no-repeat center center/cover;
   translate: 15%;
+  animation: slideTopToCenter 0.5s ease-out forwards,
+    breathingEffect 3s infinite 0.5s;
 }
 
 .start-button {
@@ -67,6 +99,7 @@ body {
   translate: 75%;
   text-align: center;
   align-items: center;
+  animation: breathingEffect 3s infinite;
 }
 
 .start-button:hover {
@@ -76,6 +109,8 @@ body {
 
 .game-box {
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .word-display {
@@ -133,6 +168,53 @@ body {
   text-align: center;
 }
 
+.time-text {
+  animation: breathingEffect 3s infinite;
+}
+
+.notification-animation {
+  animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.top-notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: #8d0000;
+  color: #f0f0f0;
+  font-size: 1em;
+  text-align: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease; /* Smooth transition for fade-out */
+}
+
+/* Fade-out animation */
+.fade-out {
+  opacity: 0; /* Set opacity to 0 for fade-out effect */
+}
+
 .refresh-button {
   margin-top: 10px; /* Jarak tombol refresh */
   margin-bottom: 30px;
@@ -143,6 +225,7 @@ body {
   cursor: pointer;
   border-radius: 4px;
   font-size: 1.5rem;
+  animation: breathingEffect 3s infinite;
 }
 
 .refresh-button:hover {
@@ -178,6 +261,7 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   margin-bottom: 50px;
+  animation: breathingEffect 3s infinite;
 }
 
 #restart-btn:hover {

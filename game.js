@@ -43,7 +43,7 @@ function chooseRandomWord() {
     li.textContent = "_";
     wordDisplay.appendChild(li);
   }
-  resetKeyboard(); // Reset keyboard for each word change
+  setupKeyboard(); // Reset keyboard for each word change
 }
 
 function setupKeyboard() {
@@ -102,7 +102,9 @@ function processGuess(letter) {
 
     // Check if lives are exhausted
     if (lives <= 0) {
-      alert("Anda kehabisan nyawa! Kata yang benar adalah " + currentWord);
+      showTopNotification(
+        "Anda kehabisan nyawa! Kata yang benar adalah " + currentWord
+      );
       endGame(); // End game if lives reach zero
     }
   } else {
@@ -118,9 +120,29 @@ function showNotification(message, type) {
   notification.style.color = type === "error" ? "#f00" : "#0f0"; // Red for error, green for correct
   notification.style.display = "block";
 
+  notification.classList.add("notification-animation");
+
   setTimeout(() => {
     notification.style.display = "none";
+    notification.classList.remove("notification-animation");
   }, 2000); // Show notification for 2 seconds
+}
+
+function showTopNotification(message) {
+  const notificationBar = document.createElement("div");
+  notificationBar.className = "top-notification";
+  notificationBar.textContent = message;
+
+  // Append notification to body
+  document.body.appendChild(notificationBar);
+
+  // Automatically remove after 3 seconds
+  setTimeout(() => {
+    notificationBar.classList.add("fade-out"); // Add fade-out animation
+    setTimeout(() => {
+      notificationBar.remove();
+    }, 1000); // Wait for fade-out to complete
+  }, 3000); // Show for 3 seconds before fading out
 }
 
 function checkGameOver() {
@@ -133,7 +155,7 @@ function checkGameOver() {
   if (displayedWord === currentWord) {
     correctGuesses++; // Increment the number of correctly guessed words
     if (correctGuesses < 10) {
-      alert(`Kata yang benar! Total benar: ${correctGuesses}`);
+      showTopNotification(`Kata yang benar! Total benar: ${correctGuesses}`);
       chooseRandomWord(); // Choose a new word
     } else {
       endGame(); // End the game if 10 words guessed
@@ -142,7 +164,8 @@ function checkGameOver() {
 
   // Check if time limit reached (checkGameOver is called every guess)
   if (timeLimit <= 0) {
-    alert("Waktu habis! Kata yang benar adalah " + currentWord);
+    resetKeyboard();
+    showTopNotification("Waktu habis! Kata yang benar adalah " + currentWord);
     endGame();
   }
 }
